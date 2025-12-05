@@ -1,0 +1,10 @@
+public class Question {
+    String question, o1, o2, o3, o4;
+    int correct;
+
+    public Question(String q, String a, String b, String c, String d, int corr){
+        question = q;
+        o1 = a; o2 = b; o3 = c; o4 = d;
+        correct = corr;
+    }
+}
