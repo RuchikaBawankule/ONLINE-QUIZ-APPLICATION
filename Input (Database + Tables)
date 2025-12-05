@@ -1,0 +1,23 @@
+CREATE DATABASE quizdb;
+USE quizdb;
+
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    password VARCHAR(50)
+);
+
+CREATE TABLE questions (
+    q_id INT PRIMARY KEY AUTO_INCREMENT,
+    question VARCHAR(255),
+    opt1 VARCHAR(100),
+    opt2 VARCHAR(100),
+    opt3 VARCHAR(100),
+    opt4 VARCHAR(100),
+    correct_opt INT
+);
+
+INSERT INTO questions(question, opt1, opt2, opt3, opt4, correct_opt) VALUES
+("Which language is used for Android?", "Java", "Swift", "Python", "Kotlin", 1),
+("Capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai", 1),
+("2 + 2 = ?", "3", "4", "5", "6", 2);
