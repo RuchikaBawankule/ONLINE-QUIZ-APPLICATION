@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class QuizApp {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        QuizDAO dao = new QuizDAO();
+
+        System.out.println("=== ONLINE QUIZ SYSTEM ===");
+
+        System.out.print("Username: ");
+        String u = sc.nextLine();
+
+        System.out.print("Password: ");
+        String p = sc.nextLine();
+
+        int userId = dao.login(u, p);
+
+        if(userId == -1){
+            System.out.println("Invalid Login!");
+            return;
+        }
+
+        System.out.println("Login Successful!\n");
+
+        ArrayList<Question> list = dao.getQuestions();
+        int score = 0;
+
+        for(Question q : list){
+
+            System.out.println("\nQ: " + q.question);
+            System.out.println("1. " + q.o1);
+            System.out.println("2. " + q.o2);
+            System.out.println("3. " + q.o3);
+            System.out.println("4. " + q.o4);
+            System.out.print("Your Answer: ");
+            int ans = sc.nextInt();
+
+            if(ans == q.correct)
+                score++;
+        }
+
+        System.out.println("\n=== QUIZ COMPLETED ===");
+        System.out.println("Your Score: " + score + "/" + list.size());
+    }
+}
